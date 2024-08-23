@@ -22,6 +22,9 @@ public class CategoryCatalog {
     @Embedded
     private Audit audit = new Audit();
 
+    public CategoryCatalog() {
+    }
+
     public Long getId() {
         return id;
     }
