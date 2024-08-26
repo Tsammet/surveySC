@@ -22,10 +22,10 @@ public class Question {
     @JoinColumn(name = "chapter_id")
     private Chapter chapters;
 
-    @Column(columnDefinition = "VARHCAR(10)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(10)", nullable = false)
     private String questionNumber;
 
-    @Column(columnDefinition = "VARHCAR(20)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(20)", nullable = false)
     private String responseType;
 
     @Column(columnDefinition = "TEXT", nullable = false)
@@ -95,7 +95,5 @@ public class Question {
     public void setAudit(Audit audit) {
         this.audit = audit;
     }
-
-    
 
 }

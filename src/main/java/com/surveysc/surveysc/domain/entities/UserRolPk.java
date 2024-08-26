@@ -8,7 +8,7 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 public class UserRolPk implements Serializable {
 
-    @Column(name = "role_id")
+    @Column(name = "rol_id")
     private Long rol;
 
     @Column(name = "user_id")

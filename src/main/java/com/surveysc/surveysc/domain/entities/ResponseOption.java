@@ -22,15 +22,15 @@ public class ResponseOption {
     private String option_value;
     
     @ManyToOne
-    @JoinColumn(name = "categories_catalog")
-    private CategoryCatalog categoriesCatalog;
+    @JoinColumn(name = "categorycatalog_id")
+    private CategoryCatalog categoryCatalog;
     
     @Embedded
     private Audit audit = new Audit();
     
     @ManyToOne
     @JoinColumn(name = "parentresponse_id")
-    private ResponseOption responesOptions;
+    private ResponseOption responseOptions;
     
     @ManyToOne
     @JoinColumn(name = "question_id")
@@ -65,11 +65,11 @@ public class ResponseOption {
     }
 
     public CategoryCatalog getCategoriesCatalog() {
-        return categoriesCatalog;
+        return categoryCatalog;
     }
 
     public void setCategoriesCatalog(CategoryCatalog categoriesCatalog) {
-        this.categoriesCatalog = categoriesCatalog;
+        this.categoryCatalog = categoriesCatalog;
     }
 
     public Audit getAudit() {
@@ -81,11 +81,11 @@ public class ResponseOption {
     }
 
     public ResponseOption getResponesOptions() {
-        return responesOptions;
+        return responseOptions;
     }
 
-    public void setResponesOptions(ResponseOption responesOptions) {
-        this.responesOptions = responesOptions;
+    public void setResponesOptions(ResponseOption responseOptions) {
+        this.responseOptions = responseOptions;
     }
 
     public Question getQuestions() {
@@ -119,7 +119,5 @@ public class ResponseOption {
     public void setOptionText(String optionText) {
         this.optionText = optionText;
     }
-
-    
 
 }
