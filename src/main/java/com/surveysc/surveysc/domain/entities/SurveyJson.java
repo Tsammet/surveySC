@@ -25,7 +25,7 @@ public class SurveyJson {
     @Embedded
     private Audit audit = new Audit();
 
-    @Column(columnDefinition = "VARCHAR(50)", nullable = false)
+    @Column(columnDefinition = "JSON", nullable = false)
     private String payload;
 
     public SurveyJson() {
@@ -62,6 +62,5 @@ public class SurveyJson {
     public void setPayload(String payload) {
         this.payload = payload;
     }
-
 
 }   
