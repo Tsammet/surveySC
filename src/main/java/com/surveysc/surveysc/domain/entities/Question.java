@@ -6,8 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,14 +16,11 @@ public class Question {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "chapter_id")
-    private Chapter chapters;
 
     @Column(columnDefinition = "VARCHAR(10)", nullable = false)
     private String questionNumber;
 
-    @Column(columnDefinition = "VARCHAR(20)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(10)", nullable = false)
     private String responseType;
 
     @Column(columnDefinition = "TEXT", nullable = false)
@@ -46,14 +41,6 @@ public class Question {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Chapter getChapters() {
-        return chapters;
-    }
-
-    public void setChapters(Chapter chapters) {
-        this.chapters = chapters;
     }
 
     public String getQuestionNumber() {
