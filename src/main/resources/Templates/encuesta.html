@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creador de Encuestas</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Crear Nueva Encuesta</h1>
+        <form id="encuestaForm">
+            <div class="form-group">
+                <label for="nombreEncuesta">Nombre de la Encuesta:</label>
+                <input type="text" id="nombreEncuesta" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcionEncuesta">Descripción de la Encuesta:</label>
+                <textarea id="descripcionEncuesta" required></textarea>
+            </div>
+            <button type="button" id="agregarCapitulo">+ Agregar Capítulo</button>
+            <div id="capitulos"></div>
+            <button type="submit" id="guardarEncuesta">GUARDAR ENCUESTA</button>
+        </form>
+    </div>
+    <script src="js/crearencuesta.js"></script>
+</body>
+</html>

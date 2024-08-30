@@ -26,12 +26,6 @@ public class Chapter {
     @JoinColumn(name = "survey_id")
     private Survey surveys;
 
-    @Column(columnDefinition = "VARCHAR(20)", nullable = false)
-    private String componentHtml;
-
-    @Column(columnDefinition = "VARCHAR(20)", nullable = false)
-    private String componentReact;
-
     @Column(columnDefinition = "VARCHAR(50)", nullable = false)
     private String chapterNumber;
 
@@ -63,22 +57,6 @@ public class Chapter {
 
     public void setSurveys(Survey surveys) {
         this.surveys = surveys;
-    }
-
-    public String getComponentHtml() {
-        return componentHtml;
-    }
-
-    public void setComponentHtml(String componentHtml) {
-        this.componentHtml = componentHtml;
-    }
-
-    public String getComponentReact() {
-        return componentReact;
-    }
-
-    public void setComponentReact(String componentReact) {
-        this.componentReact = componentReact;
     }
 
     public String getChapterNumber() {

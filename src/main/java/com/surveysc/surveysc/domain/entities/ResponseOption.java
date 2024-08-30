@@ -29,10 +29,6 @@ public class ResponseOption {
     private Audit audit = new Audit();
     
     @ManyToOne
-    @JoinColumn(name = "parentresponse_id")
-    private ResponseOption responseOptions;
-    
-    @ManyToOne
     @JoinColumn(name = "question_id")
     private Question questions;
     
@@ -80,13 +76,6 @@ public class ResponseOption {
         this.audit = audit;
     }
 
-    public ResponseOption getResponesOptions() {
-        return responseOptions;
-    }
-
-    public void setResponesOptions(ResponseOption responseOptions) {
-        this.responseOptions = responseOptions;
-    }
 
     public Question getQuestions() {
         return questions;

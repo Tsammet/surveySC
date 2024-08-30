@@ -16,17 +16,15 @@ public class Survey {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "TEXT", nullable = false)    
+    @Column(columnDefinition = "VARCHAR(255)", nullable = false)
     private String description;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(columnDefinition = "VARCHAR(255)", nullable = false)
     private String name;
 
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)
     private String componentHtml;
 
-    @Column(columnDefinition = "VARCHAR(20)", nullable = false)
-    private String componentReact;
 
    @Embedded
    private Audit audit = new Audit();
@@ -66,14 +64,6 @@ public class Survey {
         this.componentHtml = componentHtml;
     }
 
-    public String getComponentReact() {
-        return componentReact;
-    }
-
-    public void setComponentReact(String componentReact) {
-        this.componentReact = componentReact;
-    }
-
     public Audit getAudit() {
         return audit;
     }
@@ -81,8 +71,5 @@ public class Survey {
     public void setAudit(Audit audit) {
         this.audit = audit;
     }
-
-    
-
     
 }
