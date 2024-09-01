@@ -13,6 +13,7 @@ function mostrarFormulario(tipo) {
     } else if (tipo === 'actualizar') {
         formulario = `
             <form id="encuestaActualizarForm">
+                <input type="number" id="idEncuestaActualizar" placeholder="Id de la encuesta" required>
                 <input type="text" id="nombreEncuestaActualizar" placeholder="Nombre de la encuesta" required>
                 <input type="text" id="descripcionEncuestaActualizar" placeholder="Nueva descripción" required>
                 <button type="submit" id="guardarCambios">GUARDAR CAMBIOS</button>
