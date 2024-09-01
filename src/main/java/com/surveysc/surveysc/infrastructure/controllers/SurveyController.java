@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.surveysc.surveysc.application.services.survey.SurveyService;
 import com.surveysc.surveysc.domain.entities.Survey;
 
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.CrossOrigin;

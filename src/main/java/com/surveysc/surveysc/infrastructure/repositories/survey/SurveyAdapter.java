@@ -1,5 +1,7 @@
 package com.surveysc.surveysc.infrastructure.repositories.survey;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -45,5 +47,10 @@ public class SurveyAdapter implements SurveyService {
             throw new EntityNotFoundException("Survey not found with id: " + survey.getId());
         }
     }
+
+	@Override
+	public Optional<Survey> findById(Long id) {
+		throw new UnsupportedOperationException("Unimplemented method 'findById'");
+	}
 
 }

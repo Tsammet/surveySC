@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Capitulos</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Capitulos</div>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="login.html">Acceder</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>GESTIÓN DE CAPITULOS</h1>
+    <div class="container">
+        <div class="left-panel">
+            <button onclick="mostrarFormulario('crear')">Crear Capitulo</button>
+            <button onclick="mostrarFormulario('actualizar')">Actualizar Capitulo</button>
+            <button onclick="mostrarFormulario('eliminar')">Eliminar Capitulo</button>
+        </div>
+        <div class="right-panel" id="rightPanel">
+        </div>
+    </div>
+
+    <script src="js/chapter.js/mostrarFormularioCapitulo.js"></script>
+    <script src="js/chapter.js/crearCapitulo.js"></script>
+    <script src="js/chapter.js/eliminarCapitulo.js"></script>
+    <script src="js/chapter.js/actualizarCapitulo.js"></script>
+
+
+</body>
+</html>
