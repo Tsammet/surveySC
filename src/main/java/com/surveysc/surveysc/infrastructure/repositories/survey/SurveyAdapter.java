@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import com.surveysc.surveysc.application.services.survey.SurveyService;
 import com.surveysc.surveysc.domain.entities.Survey;
 
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
+
 @Service    
 public class SurveyAdapter implements SurveyService {
 
@@ -25,16 +28,22 @@ public class SurveyAdapter implements SurveyService {
         return surveyRepository.findAll(pageable);
     }
 
-    // @Override
-    // public Optional<Survey> update(Long id, Survey survey){
-    //     Optional <Survey> surveyOpt = surveyRepository.findById(id);
-    //     if (surveyOpt.isPresent()) {
-    //         Survey surveyItem = surveyOpt.orElseThrow();
-    //         surveyItem.setName(survey.getName());
-    //         surveyItem.setDescription(survey.getDescription());
-    //         return Optional.of(surveyRepository.save(surveyItem));
-    //     }
-    //     return surveyOpt;
-    // }
+    @Override
+    @Transactional
+    public void remove(String name) {
+        
+        surveyRepository.removeByName(name);
+
+    }
+
+    @Override
+    @Transactional
+    public Survey update(Survey survey) {
+        if (surveyRepository.existsById(survey.getId())) {
+            return surveyRepository.save(survey);
+        } else {
+            throw new EntityNotFoundException("Survey not found with id: " + survey.getId());
+        }
+    }
 
 }
