@@ -3,11 +3,6 @@ function guardarEncuestaActualizar() {
     const nombre = document.getElementById('nombreEncuestaActualizar').value;
     const descripcion = document.getElementById('descripcionEncuestaActualizar').value;
 
-    const encuesta = {
-        id: id,
-        nombre: nombre,
-        descripcion: descripcion
-    };
 
     fetch('http://localhost:8080/surveyapi', { // Usando PUT para actualización
         method: 'PUT',

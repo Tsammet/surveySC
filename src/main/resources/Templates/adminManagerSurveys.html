@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Encuestas</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .containermenu {
+            display: flex;
+            width: 90%;
+            margin-top: 9%;
+            margin-left: 18%;
+            max-width: 1200px;
+        }
+        .option {
+            height: 50vh;
+            color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #op1 {
+            background-color: blueviolet;
+        }
+
+        #op2 {
+            background-color: rgb(28, 176, 199);
+        }
+
+        #op3 {
+            background-color: rgb(15, 178, 61);
+        }
+
+        #op4 {
+            background-color: rgb(18, 8, 121);
+        }
+
+        .option i {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: white; /* Mantener el color del ícono blanco */
+        }
+
+        .option a {
+            margin-top: 20%;
+            font-size: 2rem;
+            text-align: center;
+            color: inherit; /* El enlace mantiene el color blanco de la opción */
+            text-decoration: none; /* Eliminar subrayado del enlace */
+        }
+
+        .option a:hover {
+            color: inherit; /* Evita que el color cambie al pasar el mouse */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SC Surveys</div>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="login.html">Acceder</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="bg">
+        <div class="containermenu">
+            <div class="option" id="op1" onclick="changeColor(this)">
+                <i class="fas fa-poll"></i>
+                <a href="encuesta.html" id="textogestion">Gestión de Encuestas</a>
+            </div>
+            <div class="option" id="op2" onclick="changeColor(this)">
+                <i class="fas fa-book-open"></i>
+                <a href="capitulo.html" id="textogestion">Gestión de Capítulos</a>
+            </div>
+            <div class="option" id="op3" onclick="changeColor(this)">
+                <i class="fas fa-question-circle"></i>
+                <a href="preguntas.html" id="textogestion">Gestión de Preguntas</a>
+            </div>
+            <div class="option" id="op4" onclick="changeColor(this)">
+                <i class="fas fa-list-ul"></i>
+                <a href="opciones.html" id="textogestion">Gestión de Opciones de Respuesta</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeColor(element) {
+            // Generar un color aleatorio
+            const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            element.style.backgroundColor = "#" + randomColor;
+        }
+    </script>
+</body>
+</html>

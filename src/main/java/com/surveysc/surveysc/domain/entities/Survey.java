@@ -1,6 +1,8 @@
 package com.surveysc.surveysc.domain.entities;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -33,7 +35,7 @@ public class Survey {
 
     @OneToMany(mappedBy = "surveys", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<Chapter> chapters;
+    private Set<Chapter> chapters = new HashSet<>();
 
     public Survey() {
     }
@@ -70,13 +72,14 @@ public class Survey {
         this.audit = audit;
     }
 
-    public List<Chapter> getChapters() {
+    public Set<Chapter> getChapters() {
         return chapters;
     }
 
-    public void setChapters(List<Chapter> chapters) {
+    public void setChapters(Set<Chapter> chapters) {
         this.chapters = chapters;
     }
 
+    
     
 }

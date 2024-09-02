@@ -12,31 +12,28 @@
             font-family: Arial, sans-serif;
         }
         .bg-image {
-            background-image: url('https://blog.greatplacetowork.com.ar/hubfs/Devoluci%C3%B3n-datos-analisis.jpg');
+            background-image: url('https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw/SOIN20020_1560x880.jpg');
             height: 100%;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             filter: blur(5px);
             -webkit-filter: blur(5px);
-        
         }
-        .containeradmin {
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            z-index: 2;
             width: 80%;
+            max-width: 400px;
+            padding: 20px;
             text-align: center;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: nowrap;
-        
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
-
-
-    
         h1 {
             margin-bottom: 20px;
             color: #333;
@@ -51,7 +48,7 @@
             border-radius: 4px;
         }
         button {
-            background-color: #07103d;
+            background-color: #4CAF50;
             color: white;
             padding: 14px 20px;
             margin: 8px 0;
@@ -72,26 +69,33 @@
             <div class="logo">SC Surveys</div>
             <button class="menu-toggle" aria-label="Abrir menú">☰</button>
             <ul class="nav-links">
-                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="#">Acerca de</a></li>
-                <li><a href="inicio.html">Cerrar Sesión</a></li>
+                <li><a href="login.html">Acceder</a></li>
             </ul>
         </nav>
     </header>
     <div class="bg-image"></div>
-    <div class="containeradmin">
-        <div class="image-container-admin">
-            <img id="img-admin" src="https://cdn-icons-png.freepik.com/512/3273/3273583.png" alt="Gestionar encuestas">
-            <a href="adminManagerSurveys.html">
-                <button id="b-admin">Gestionar encuestas</button>
-            </a>
-        </div>
-        
-        
-        <div class="image-container-admin">
-            <img id="img-admin" src="https://cdn-icons-png.freepik.com/512/10266/10266430.png" alt="Visualizar encuestas">
-            <a href="adminViewSurveys.html">
-                <button id="b-admin">Visualizar encuestas</button>
-            </a>
-        </div>
+    <div class="login-container">
+        <h1>Iniciar Sesión</h1>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit" onclick="window.location.href='menuAdmin.html'">ACCEDER</button>
+
+        </form>
     </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            
+            // Aquí puedes agregar la lógica de autenticación
+            console.log('Intento de inicio de sesión con:', username, password);
+            alert('Intento de inicio de sesión con:\nUsuario: ' + username + '\nContraseña: ' + password);
+        });
+    </script>
+</body>
+</html>
