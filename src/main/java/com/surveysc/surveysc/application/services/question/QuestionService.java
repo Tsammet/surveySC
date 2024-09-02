@@ -1,5 +1,6 @@
 package com.surveysc.surveysc.application.services.question;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -18,5 +19,8 @@ public interface QuestionService {
     void remove(Long id);
 
     Question update(Question chapter);
+
+    List<Question> findByChapterId(Long chapterId);
+
     
 }

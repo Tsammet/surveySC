@@ -1,5 +1,6 @@
 package com.surveysc.surveysc.infrastructure.repositories.question;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.surveysc.surveysc.application.services.question.QuestionService;
+import com.surveysc.surveysc.domain.entities.Chapter;
 import com.surveysc.surveysc.domain.entities.Question;
+import com.surveysc.surveysc.domain.entities.Survey;
+import com.surveysc.surveysc.infrastructure.repositories.chapter.ChapterRepository;
+import com.surveysc.surveysc.infrastructure.repositories.chapter.exceptions.ResourceNotFoundException;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -18,6 +23,9 @@ public class QuestionAdapter implements QuestionService{
 
     @Autowired
     private QuestionRepository questionRepository;
+
+    @Autowired
+    private ChapterRepository chapterRepository;
 
     @Override
     public Question save(Question question){
@@ -51,5 +59,15 @@ public class QuestionAdapter implements QuestionService{
     @Override
     public Optional<Question> findById(Long id) {
         return questionRepository.findById(id);
+    }
+
+    @Override
+    public List<Question> findByChapterId(Long chapterId) {
+        // Encuentra la encuesta por ID
+        Chapter chapter = chapterRepository.findById(chapterId)
+            .orElseThrow(() -> new ResourceNotFoundException("Chapter not found"));
+
+        // Busca los capítulos asociados a esa encuesta
+        return questionRepository.findByChapters(chapter);
     }
 }

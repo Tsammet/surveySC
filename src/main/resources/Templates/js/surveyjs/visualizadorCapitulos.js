@@ -45,6 +45,8 @@ function mostrarCapitulos(surveyId) {
                     <td>${capitulo.id}</td>
                     <td>${capitulo.chapterNumber}</td>
                     <td>${capitulo.chapterTitle}</td>
+                    <td><button onclick="verCapitulos(${capitulo.id})">Ver Capítulos</button></td>
+
                 </tr>
             `;
         });
@@ -56,6 +58,10 @@ function mostrarCapitulos(surveyId) {
         console.error('Error al intentar obtener los capítulos:', error);
         alert('Error al intentar obtener los capítulos: ' + error.message);
     });
+}
+
+function verCapitulos(encuestaId) {
+    window.location.href = `verPreguntas.html?chapterId=${encuestaId}`;
 }
 
 function goBack() {

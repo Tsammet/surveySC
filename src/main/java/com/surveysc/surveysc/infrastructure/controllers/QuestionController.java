@@ -1,5 +1,7 @@
 package com.surveysc.surveysc.infrastructure.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,13 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.surveysc.surveysc.application.services.chapter.ChapterService;
-import com.surveysc.surveysc.application.services.dto.ChapterDto;
+
 import com.surveysc.surveysc.application.services.dto.QuestionDto;
 import com.surveysc.surveysc.application.services.question.QuestionService;
 import com.surveysc.surveysc.domain.entities.Chapter;
 import com.surveysc.surveysc.domain.entities.Question;
-import com.surveysc.surveysc.domain.entities.Survey;
 import com.surveysc.surveysc.infrastructure.repositories.chapter.ChapterRepository;
 import com.surveysc.surveysc.infrastructure.repositories.chapter.exceptions.ResourceNotFoundException;
 
@@ -95,5 +95,16 @@ public class QuestionController {
         Question updateQuestion = questionService.save(existingQuestion);
     
         return ResponseEntity.ok(updateQuestion);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Question>> findByChapterId(@RequestParam Long chapterId) {
+    List<Question> questions = questionService.findByChapterId(chapterId);
+
+    if (!questions.isEmpty()) {
+        return ResponseEntity.ok(questions);
+    }
+
+    return ResponseEntity.notFound().build();
     }
 }

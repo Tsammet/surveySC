@@ -7,7 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.surveysc.surveysc.domain.entities.Chapter;
-import com.surveysc.surveysc.domain.entities.Survey;
 
 public interface ChapterService {
 
