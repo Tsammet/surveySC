@@ -1,6 +1,11 @@
 package com.surveysc.surveysc.domain.entities;
 
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -9,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -31,6 +37,10 @@ public class Chapter {
 
     @Column(columnDefinition = "VARCHAR(50)", nullable = false)
     private String chapterTitle;
+
+    @OneToMany(mappedBy = "chapters", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore // Evitar que se serialice la lista de capítulos
+    private List<Question> questions;
 
     public Chapter() {
     }
@@ -74,6 +84,15 @@ public class Chapter {
     public void setChapterTitle(String chapterTitle) {
         this.chapterTitle = chapterTitle;
     }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
 
     
 

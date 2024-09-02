@@ -48,6 +48,14 @@ public class Question {
         this.id = id;
     }
 
+    public Chapter getChapters() {
+        return chapters;
+    }
+
+    public void setChapters(Chapter chapters) {
+        this.chapters = chapters;
+    }
+
     public String getQuestionNumber() {
         return questionNumber;
     }
@@ -88,4 +96,5 @@ public class Question {
         this.audit = audit;
     }
 
+   
 }

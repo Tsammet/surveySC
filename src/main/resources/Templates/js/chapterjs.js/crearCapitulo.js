@@ -11,7 +11,7 @@ function guardarEncuestaCrear() {
         body: JSON.stringify({
             surveyId : idEncuesta,
             chapterTitle: tituloCapitulo,
-            chapterNumber: numeroCapitulo,
+            chapterNumber: numeroCapitulo
         }),
     })
     .then(response => {
