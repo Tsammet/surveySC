@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .bg-image {
+            background-image: url('https://blog.greatplacetowork.com.ar/hubfs/Devoluci%C3%B3n-datos-analisis.jpg');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        
+        }
+        .containeradmin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: nowrap;
+        
+        }
+
+
+    
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #07103d;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SC Surveys</div>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="login.html">Acceder</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="bg-image"></div>
+    <div class="containeradmin">
+        <div class="image-container-admin">
+            <img id="img-admin" src="https://cdn-icons-png.freepik.com/512/3273/3273583.png" alt="Gestionar encuestas">
+            <a href="menugestion.html">
+                <button id="b-admin">Gestionar encuestas</button>
+            </a>
+        </div>
+        
+        
+        <div class="image-container-admin">
+            <img id="img-admin" src="https://cdn-icons-png.freepik.com/512/10266/10266430.png" alt="Visualizar encuestas">
+            <a href="verEncuestas.html">
+                <button id="b-admin">Visualizar encuestas</button>
+            </a>
+        </div>
+    </div>

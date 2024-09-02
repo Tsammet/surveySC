@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Encuestas</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url('https://www.esic.edu/sites/default/files/2022-05/analisis-de-datos.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+       
+        .container {
+            background-color: rgba(255, 255, 255, 0.63);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 50px auto;
+            width: 70%;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        button {
+            background-color: #1a867e;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .back-button {
+            background-color: #68168eaf;
+        }
+        .question-card {
+            background-color: #f1f1f17b;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .options {
+            margin-top: 10px;
+        }
+        .option {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SC Surveys</div>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="login.html">Acceder</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div id="back-button-container" style="display: none;">
+            <button class="back-button" onclick="goBack()">← Volver</button>
+        </div>
+        <h1 id="main-title">ENCUESTAS DISPONIBLES</h1>
+        <div id="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID encuesta</th>
+                        <th>Nombre encuesta</th>
+                        <th>Descripción encuesta</th>
+                    </tr>
+                </thead>
+                <tbody id="encuesta-list">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/surveyjs/visualizador.js"></script>
+</body>
+</html>

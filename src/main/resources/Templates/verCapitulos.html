@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulos de Encuesta</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SC Surveys</div>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="login.html">Acceder</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div id="back-button-container" style="display: block;">
+            <button class="back-button" onclick="goBack()">← Volver</button>
+        </div>
+        <h1 id="main-title">CAPÍTULOS DISPONIBLES</h1>
+        <div id="content"></div>
+    </div>
+
+
+    <script src="js/surveyjs/visualizadorCapitulos.js" defer></script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 package com.surveysc.surveysc.infrastructure.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -85,5 +87,17 @@ public class ChapterController {
         Chapter updatedChapter = chapterService.save(existingChapter);
     
         return ResponseEntity.ok(updatedChapter);
+    }
+
+
+    @GetMapping
+    public ResponseEntity<List<Chapter>> findBySurveyId(@RequestParam Long surveyId) {
+        List<Chapter> chapters = chapterService.findBySurveyId(surveyId);
+
+        if (!chapters.isEmpty()) {
+            return ResponseEntity.ok(chapters);
+        }
+
+        return ResponseEntity.notFound().build();
     }
 }
