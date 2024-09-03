@@ -21,19 +21,12 @@ public class ResponseOption {
     @Column(columnDefinition = "VARCHAR(10)", nullable = false)
     private String option_value;
     
-    @ManyToOne
-    @JoinColumn(name = "categorycatalog_id")
-    private CategoryCatalog categoryCatalog;
-    
     @Embedded
     private Audit audit = new Audit();
     
     @ManyToOne
     @JoinColumn(name = "question_id")
     private Question questions;
-    
-    @Column(columnDefinition = "VARCHAR(30)", nullable = false)
-    private String typeComponentHtml;
     
     @Column(columnDefinition = "TEXT", nullable = false)
     private String commentResponse;
@@ -60,14 +53,6 @@ public class ResponseOption {
         this.option_value = option_value;
     }
 
-    public CategoryCatalog getCategoriesCatalog() {
-        return categoryCatalog;
-    }
-
-    public void setCategoriesCatalog(CategoryCatalog categoriesCatalog) {
-        this.categoryCatalog = categoriesCatalog;
-    }
-
     public Audit getAudit() {
         return audit;
     }
@@ -85,13 +70,6 @@ public class ResponseOption {
         this.questions = questions;
     }
 
-    public String getTypeComponentHtml() {
-        return typeComponentHtml;
-    }
-
-    public void setTypeComponentHtml(String typeComponentHtml) {
-        this.typeComponentHtml = typeComponentHtml;
-    }
 
     public String getCommentResponse() {
         return commentResponse;
