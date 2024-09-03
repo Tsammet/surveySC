@@ -1,41 +1,39 @@
-package com.surveysc.surveysc.domain.entities;
+// package com.surveysc.surveysc.domain.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+// import java.util.List;
 
-@Entity
-@Table(name = "roles")
-public class Rol {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+// import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-    @Column(columnDefinition = "VARCHAR(255)", nullable = false)
-    private String name;
+// import jakarta.persistence.Column;
+// import jakarta.persistence.Entity;
+// import jakarta.persistence.GeneratedValue;
+// import jakarta.persistence.GenerationType;
+// import jakarta.persistence.Id;
+// import jakarta.persistence.ManyToMany;
+// import jakarta.persistence.Table;
+// import lombok.AllArgsConstructor;
+// import lombok.Builder;
+// import lombok.Data;
+// import lombok.NoArgsConstructor;
 
-    public Rol() {
-    }
+// @Table(name = "roles")
+// @Data
+// @Builder
+// @NoArgsConstructor
+// @AllArgsConstructor
+// @Entity
+// public class Rol {
 
-    public Long getId() {
-        return id;
-    }
+//     @Id
+//     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//     @Column(name = "role_id")
+//     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+//     @Column(columnDefinition = "VARCHAR(255)", unique = true)
+//     private String name;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    
-}
+//     @JsonIgnoreProperties({"roles", "handler", "hibernateLazyInitializer"})
+//     @ManyToMany(mappedBy = "roles")
+//     private List<User> users;
+// }

@@ -1,64 +1,78 @@
-package com.surveysc.surveysc.domain.entities;
+// package com.surveysc.surveysc.domain.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+// import java.util.List;
+// import java.util.Collection;
 
-@Entity
-@Table(name = "users")
-public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+// import jakarta.persistence.Column;
+// import jakarta.persistence.Entity;
+// import jakarta.persistence.GeneratedValue;
+// import jakarta.persistence.GenerationType;
+// import jakarta.persistence.Id;
+// import jakarta.persistence.Table;
+// import jakarta.persistence.UniqueConstraint;
+// import lombok.AllArgsConstructor;
+// import lombok.Builder;
+// import lombok.Data;
+// import lombok.NoArgsConstructor;
 
-    @Column(name = "enabled")
-    private boolean enabled;
+// @Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }) })
+// @Data
+// @Builder
+// @NoArgsConstructor
+// @AllArgsConstructor
+// @Entity
+// public class User {
 
-    @Column(columnDefinition = "VARCHAR(12)", nullable = false)
-    private String username;
+//     @Id
+//     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//     private Long id;
+
+//     @Column(name = "enabled")
+//     private boolean enabled;
+
+//     @Column(columnDefinition = "VARCHAR(12)")
+//     private String username;
     
-    @Column(columnDefinition = "VARCHAR(255)", nullable = false)
-    private String password;
+//     @Column(columnDefinition = "VARCHAR(255)")
+//     private String password;
 
-    public User() {
-    }
+//     @Override
+//     public Collection<? extends GrantedAuthority> getAuthorities(){
+//         List<GrantedAuthority> authorities = new ArrayList<>();
+//         for (Rol role : roles){
+//             authorities.add(new SimpleGrantedAuthority(role.getName()));
+//         }
+//         return authorities;
+//     }
 
-    public Long getId() {
-        return id;
-    }
+//     @Override
+//     public String getPassword() {
+//         return password;
+//     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+//     @Override
+//     public String getUsername() {
+//         return username;
+//     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
+//     @Override
+//     public boolean isAccountNonExpired() {
+//         return true;
+//     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+//     @Override
+//     public boolean isAccountNonLocked() {
+//         return true;
+//     }
 
-    public String getUsername() {
-        return username;
-    }
+//     @Override
+//     public boolean isCredentialsNonExpired() {
+//         return true;
+//     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    
-
-}
+//     @Override
+//     public boolean isEnabled() {
+//         return enabled;
+//     }
+// }
