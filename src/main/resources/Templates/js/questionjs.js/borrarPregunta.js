@@ -18,7 +18,7 @@ function guardarEncuestaEliminar() {
     })
     .then(data => {
         console.log('Success:', data);
-        alert('Capitulo eliminado con éxito!');
+        alert('Pregunta eliminada con éxito!');
     })
     .catch(error => {
         console.error('Error:', error);
