@@ -9,8 +9,12 @@
 // import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 // import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 // import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+// import org.springframework.security.core.userdetails.User;
+// import org.springframework.security.core.userdetails.UserDetails;
+// import org.springframework.security.core.userdetails.UserDetailsService;
 // import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 // import org.springframework.security.crypto.password.PasswordEncoder;
+// import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 // import org.springframework.security.web.SecurityFilterChain;
 
 // @Configuration
@@ -34,6 +38,17 @@
 //         provider.setPasswordEncoder(null);
 //         provider.setUserDetailsService(null);
 //         return provider;
+//     }
+
+//     @Bean
+//     public UserDetailsService userDetailsService(){
+//         UserDetails userDetails = User.withUsername("carlos")
+//         .password("1234")
+//         .roles("ADMIN")
+//         .authorities("READ", "CREATE")
+//         .build();
+
+//         return new InMemoryUserDetailsManager(userDetails);
 //     }
 
 //     @Bean
