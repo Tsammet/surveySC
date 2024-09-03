@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.surveysc.surveysc.application.services.question.QuestionService;
 import com.surveysc.surveysc.domain.entities.Chapter;
 import com.surveysc.surveysc.domain.entities.Question;
-import com.surveysc.surveysc.domain.entities.Survey;
 import com.surveysc.surveysc.infrastructure.repositories.chapter.ChapterRepository;
 import com.surveysc.surveysc.infrastructure.repositories.chapter.exceptions.ResourceNotFoundException;
 
