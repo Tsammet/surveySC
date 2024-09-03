@@ -7,10 +7,24 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        .back-link {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none; /* Hace que el enlace no tenga subrayado */
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #68168eaf; /* Color específico para el botón de volver */
+            margin-left: 10vw;
+        }
         .containermenu {
             display: flex;
             width: 90%;
-            margin-top: 9%;
+            margin-top: 5%;
             margin-left: 18%;
             max-width: 1200px;
         }
@@ -78,6 +92,9 @@
             </ul>
         </nav>
     </header>
+    <div id="back-button-container">
+        <a href="menuAdmin.html" class="back-link">← Volver</a>
+    </div>
     <div class="bg">
         <div class="containermenu">
             <div class="option" id="op1" onclick="changeColor(this)">
