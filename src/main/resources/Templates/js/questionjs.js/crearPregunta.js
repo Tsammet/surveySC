@@ -26,7 +26,7 @@ function guardarEncuestaCrear() {
     })
     .then(data => {
         console.log('Success:', data);
-        alert('Capitulo creado con éxito!');
+        alert('Pregunta creada con éxito!');
     })
     .catch(error => {
         console.error('Error:', error);

@@ -229,6 +229,19 @@ h1 {
     text-align: center;
 }
 
+.left-button-link{
+    padding: 15px;
+    background-color: #13376d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    text-align: center;
+
+
+}
 .left-panel button:hover {
     background-color: #173555;
 }
