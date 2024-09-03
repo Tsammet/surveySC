@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Opciones de respuesta</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        .back-link {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none; /* Hace que el enlace no tenga subrayado */
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #68168eaf; /* Color específico para el botón de volver */
+            margin-left: 10vw;
+        }
+        .continue-link {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none; /* Hace que el enlace no tenga subrayado */
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #68168eaf; /* Color específico para el botón de volver */
+            margin-left: 75vw;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SC Surveys</div>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <ul class="nav-links">
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="inicio.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="back-button-container">
+        <a href="adminManagerSurveys.html" class="back-link">← Volver al menú principal</a>
+    </div>
+    <div id="titulo-gestion">
+        <h1>GESTIÓN DE OPCIONES DE RESPUESTA</h1>
+    </div>
+    <div class="container">
+        <div class="left-panel">
+            <button onclick="mostrarFormulario('crear')">Crear Opción de Respuesta</button>
+            <button onclick="mostrarFormulario('actualizar')">Actualizar Opción de Respuesta</button>
+            <button onclick="mostrarFormulario('eliminar')">Eliminar Opción de Respuesta</button>
+            <a href="listarPreguntas.html" class="left-button-link">Listar Opciones de Respuesta</a> 
+        <div class="right-panel" id="rightPanel"></div>
+    </div>
+    <div id="back-button-container">
+        <a href="capitulo.html" class="continue-link">Continuar con otra opción de respuesta →</a>
+    </div>
+
+    <script src="js/responseoption.js/crearResponseOption.js"></script>
+    <script src="js/responseoption.js/mostrarFormularioResponseOption.js"></script>
+
+
+</body>
+</html>
