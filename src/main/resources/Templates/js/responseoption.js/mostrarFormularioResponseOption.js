@@ -14,6 +14,7 @@ function mostrarFormulario(tipo) {
             </form>
         `;
     } 
+    
 
     rightPanel.innerHTML = formulario;
 
