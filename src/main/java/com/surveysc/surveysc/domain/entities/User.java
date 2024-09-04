@@ -1,14 +1,22 @@
 // package com.surveysc.surveysc.domain.entities;
 
-// import java.util.List;
+// import java.util.ArrayList;
 // import java.util.Collection;
+// import java.util.List;
 
+// import org.springframework.security.core.GrantedAuthority;
+// import org.springframework.security.core.authority.SimpleGrantedAuthority;
+// import org.springframework.security.core.userdetails.UserDetails;
 
 // import jakarta.persistence.Column;
 // import jakarta.persistence.Entity;
+// import jakarta.persistence.FetchType;
 // import jakarta.persistence.GeneratedValue;
 // import jakarta.persistence.GenerationType;
 // import jakarta.persistence.Id;
+// import jakarta.persistence.JoinColumn;
+// import jakarta.persistence.JoinTable;
+// import jakarta.persistence.ManyToMany;
 // import jakarta.persistence.Table;
 // import jakarta.persistence.UniqueConstraint;
 // import lombok.AllArgsConstructor;
@@ -22,25 +30,32 @@
 // @NoArgsConstructor
 // @AllArgsConstructor
 // @Entity
-// public class User {
+// public class User implements UserDetails{
 
 //     @Id
 //     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//     private Long id;
+//     Long id;
 
 //     @Column(name = "enabled")
-//     private boolean enabled;
+//     boolean enabled;
 
 //     @Column(columnDefinition = "VARCHAR(12)")
-//     private String username;
+//     String username;
     
 //     @Column(columnDefinition = "VARCHAR(255)")
-//     private String password;
+//     String password;
+
+//     @ManyToMany(fetch = FetchType.EAGER)
+//     @JoinTable(
+//         name = "users_roles",
+//         joinColumns = @JoinColumn(name = "role_id"),
+//         uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "role_id"})})
+//     private List<Rol> roles;
 
 //     @Override
-//     public Collection<? extends GrantedAuthority> getAuthorities(){
+//     public Collection<? extends GrantedAuthority> getAuthorities() {
 //         List<GrantedAuthority> authorities = new ArrayList<>();
-//         for (Rol role : roles){
+//         for (Rol role : roles) {
 //             authorities.add(new SimpleGrantedAuthority(role.getName()));
 //         }
 //         return authorities;

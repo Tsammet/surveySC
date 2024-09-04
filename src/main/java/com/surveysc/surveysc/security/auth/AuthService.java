@@ -1,6 +1,19 @@
 // package com.surveysc.surveysc.security.auth;
 
+// import java.util.HashSet;
+// import java.util.List;
+// import java.util.Set;
+
+// import org.springframework.security.authentication.AuthenticationManager;
+// import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+// import org.springframework.security.core.userdetails.UserDetails;
+// import org.springframework.security.crypto.password.PasswordEncoder;
 // import org.springframework.stereotype.Service;
+
+// import com.surveysc.surveysc.domain.entities.Rol;
+// import com.surveysc.surveysc.domain.entities.User;
+// import com.surveysc.surveysc.security.auth.user.RolRepository;
+// import com.surveysc.surveysc.security.auth.user.UserRepository;
 
 // import lombok.RequiredArgsConstructor;
 
@@ -8,16 +21,49 @@
 // @RequiredArgsConstructor
 // public class AuthService {
 
+//     private final UserRepository userRepository; 
+//     private final JwtService jwtService;
+//     private final PasswordEncoder passwordEncoder;
+//     private final AuthenticationManager authenticationManager;
+//     private final RolRepository rolRepository;
+
 //     public AuthResponse login(LoginRequest request) {
 
-//         return null;
+//         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+//         User user = userRepository.findByUserName(request.getUsername()).orElseThrow(() -> new RuntimeException("User not found"));
 
+//         String token = jwtService.getToken(user);
+
+//         String role = user.getRoles().stream()
+//                           .findFirst()
+//                           .map(Rol::getName)
+//                           .orElse("UNKNOW_ROLE");
+
+//         return AuthResponse.builder()
+//             .token(token)
+//             .role(role)
+//             .build();
 //     }
 
 //     public AuthResponse register(RegisterRequest request) {
 
-//         return null;    
-    
-//     }
+//         Rol userRole = rolRepository.findByName("USER")
+//             .orElseThrow(() -> new RuntimeException("Rol USER no encontrado"));
+//         System.out.println("Received registration request: " + request);
+
+//         if (request.getPassword() == null || request.getPassword().isEmpty()){
+//             throw new IllegalArgumentException("Password cannot be null or empty");
+//         }
+
+//         String encodePassword = passwordEncoder.encode(request.getPassword());
+
+//         Set<Rol> userRols = new HashSet<>();
+//         for (String rolname : request.getRoles()){
+//             Rol role = rolRepository.findByName(rolname)
+//                 .orElseThrow(() -> new RuntimeException("ROl Not Found: " + rolname));
+//             userRols.add(role);
+//         }
+
+//         List<Rol> rolesList = List.copyOf(userRols);
 
 // }

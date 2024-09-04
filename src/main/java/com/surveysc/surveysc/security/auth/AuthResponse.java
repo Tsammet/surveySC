@@ -12,5 +12,6 @@
 // public class AuthResponse {
 
 //     String token;
+//     private String role;
 
 // }
