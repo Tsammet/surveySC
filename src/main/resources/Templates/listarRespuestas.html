@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Opciones de Respuesta </title>
+    <link rel="stylesheet" href="styles/styles.css">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SC Surveys</div>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <ul class="nav-links">
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="inicio.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Listado de Respuestas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Respuesta</th>
+                    <th>ID Pregunta</th>
+                    <th>Valor de la opción de respuesta</th>
+                    <th>Comentario Texto Respuesta</th>
+                    <th>Texto de la Respuesta</th>
+                </tr>
+            </thead>
+            <tbody id="respuesta-list">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/responseoption.js/listarResponseOption.js"></script>
+
+</body>
