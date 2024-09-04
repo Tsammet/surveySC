@@ -22,6 +22,6 @@ function guardarEncuestaEliminar() {
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Error al eliminar el capitlo.');
+        alert('Error al eliminar el capitulo.');
     });
 }
