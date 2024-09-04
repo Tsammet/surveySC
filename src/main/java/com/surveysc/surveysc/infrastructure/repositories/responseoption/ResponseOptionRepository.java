@@ -6,6 +6,8 @@ import com.surveysc.surveysc.domain.entities.ResponseOption;
 
 public interface ResponseOptionRepository extends JpaRepository<ResponseOption, Long>{
 
+    void removeById(Long id);
+
 
 }
 

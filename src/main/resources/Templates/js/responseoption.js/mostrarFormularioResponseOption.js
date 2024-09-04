@@ -25,6 +25,13 @@ function mostrarFormulario(tipo) {
                 <button type="submit" id="guardarCambios">GUARDAR CAMBIOS</button>
             </form>
         `;
+    } else if (tipo === 'eliminar') {
+        formulario = `
+            <form id="RespuestaEliminarForm">
+                <input type="number" id="idResponseOptionEliminar" placeholder="Id de la opcion de respuesta a eliminar" required>
+                <button type="submit" id="guardarCambios">GUARDAR CAMBIOS</button>
+            </form>
+        `;
     }
     
 
@@ -43,12 +50,14 @@ function mostrarFormulario(tipo) {
             guardarEncuestaCrear();
         } else if (tipo === 'actualizar') {
             guardarEncuestaActualizar();
+        } else if (tipo === 'eliminar') {
+            guardarEncuestaEliminar();
         }
     }
 
     const form = document.getElementById(tipo === 'crear' ? 'encuestaRespuestaForm' :
                                         tipo === 'actualizar' ? 'encuestaActualizarForm' :
-                                        'CapituloEliminarForm');
+                                        'RespuestaEliminarForm');
     if (form) {
         form.addEventListener('submit', handleFormSubmit);
     }

@@ -12,4 +12,8 @@ public interface ResponseOptionService {
 
     ResponseOption update(ResponseOption responseOption);
 
+    void remove(Long id);
+
+
+
 }

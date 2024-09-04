@@ -44,4 +44,11 @@ public class ResponseOptionAdapter implements ResponseOptionService {
 		
 	}
 
+    @Override
+    @Transactional
+    public void remove(Long id) {
+        responseOptionRepository.removeById(id);
+
+    }
+
 }

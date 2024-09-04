@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.surveysc.surveysc.application.services.dto.ResponseOptionDto;
@@ -44,6 +46,13 @@ public class ResponseOptionController {
 
         ResponseOption newResponseOption = responseOptionService.save(responseOption);
         return ResponseEntity.status(HttpStatus.CREATED).body(newResponseOption);
+    }
+
+    @CrossOrigin(origins = "*")
+    @DeleteMapping
+    public ResponseEntity<String> deleteResponseOption(@RequestParam Long responseOption) {
+        responseOptionService.remove(responseOption);
+        return new ResponseEntity<>("Eliminado", HttpStatus.OK);
     }
 
     @PutMapping
