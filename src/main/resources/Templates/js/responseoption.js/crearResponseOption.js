@@ -10,6 +10,7 @@ function guardarEncuestaCrear() {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+
             option_value : optionValue,
             commentResponse: commentResponse,
             optionText: optionText,
