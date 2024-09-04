@@ -66,4 +66,18 @@
 
 //         List<Rol> rolesList = List.copyOf(userRols);
 
+//         User user = user.builder()
+//             .username(request.getUsername())
+//             .password(encodePassword)
+//             .roles(rolesList)
+//             .enabled(true)
+//             .build();
+
+//             userRepository.save(user);
+
+//             return AuthResponse.builder()
+//                 .token(jwtService.getToken(user))
+//                 .build();
+//     }
+
 // }

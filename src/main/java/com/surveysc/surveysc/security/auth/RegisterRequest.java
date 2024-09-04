@@ -13,6 +13,7 @@
 
 //     String username;
 //     String password;
+//     private boolean enabled;
 
 
 // }

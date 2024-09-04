@@ -32,6 +32,7 @@
 //             .authorizeHttpRequests(authRequest ->
 //             authRequest
 //             .requestMatchers("/auth/**").permitAll()
+//             .requestMatchers("/admin/**").hasRole("ADMIN")  
 //             .anyRequest().authenticated()
 //             )
 //             .sessionManagement(sessionManager ->
