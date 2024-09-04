@@ -1,46 +1,46 @@
-// package com.surveysc.surveysc.security.config;
+package com.surveysc.surveysc.security.config;
 
-// import org.springframework.context.annotation.Bean;
-// import org.springframework.context.annotation.Configuration;
-// import org.springframework.security.authentication.AuthenticationProvider;
-// import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-// import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-// import org.springframework.security.config.http.SessionCreationPolicy;
-// import org.springframework.security.web.SecurityFilterChain;
-// import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-// import com.surveysc.surveysc.security.jwt.JwtAuthenticationFilter;
+import com.surveysc.surveysc.security.jwt.JwtAuthenticationFilter;
 
-// import lombok.RequiredArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-// @Configuration
-// @EnableWebSecurity
-// @RequiredArgsConstructor
+@Configuration
+@EnableWebSecurity
+@RequiredArgsConstructor
+public class SecurityConfig{
 
-// public class SecurityConfig{
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final AuthenticationProvider authProvider;
 
-//     private final JwtAuthenticationFilter jwtAuthenticationFilter;
-//     private final AuthenticationProvider authProvider;
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
-//     @Bean
-//     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+        return http
+            .csrf(csrf ->
+            csrf
+            .disable())
+            .authorizeHttpRequests(authRequest ->
+            authRequest
+            .requestMatchers("/**").permitAll()
+            .requestMatchers("/auth/**").permitAll()
+            .requestMatchers("/admin/**").hasRole("ADMIN")  
+            .anyRequest().authenticated()
+            )
+            .sessionManagement(sessionManager ->
+            sessionManager
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authenticationProvider(authProvider)
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+            .build();
+    }
 
-//         return http
-//             .csrf(csrf ->
-//             csrf
-//             .disable())
-//             .authorizeHttpRequests(authRequest ->
-//             authRequest
-//             .requestMatchers("/auth/**").permitAll()
-//             .requestMatchers("/admin/**").hasRole("ADMIN")  
-//             .anyRequest().authenticated()
-//             )
-//             .sessionManagement(sessionManager ->
-//             sessionManager
-//             .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//             .authenticationProvider(authProvider)
-//             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-//             .build();
-//     }
-
-// }
+}
