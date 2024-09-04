@@ -5,12 +5,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.surveysc.surveysc.application.services.dto.ResponseOptionDto;
 import com.surveysc.surveysc.application.services.responseoption.ResponseOptionService;
+
 import com.surveysc.surveysc.domain.entities.Question;
 import com.surveysc.surveysc.domain.entities.ResponseOption;
 import com.surveysc.surveysc.infrastructure.repositories.chapter.exceptions.ResourceNotFoundException;
@@ -42,6 +44,27 @@ public class ResponseOptionController {
 
         ResponseOption newResponseOption = responseOptionService.save(responseOption);
         return ResponseEntity.status(HttpStatus.CREATED).body(newResponseOption);
+    }
+
+    @PutMapping
+    public ResponseEntity<ResponseOption> updateChapter(@Valid @RequestBody ResponseOptionDto responseOptionDto) {
+        // Buscar el capítulo existente
+        ResponseOption existingResponseOption = responseOptionService.findById(responseOptionDto.getId()).orElseThrow(() -> new ResourceNotFoundException("Response option not found"));
+    
+        // Buscar la encuesta asociada
+        Question question = questionRepository.findById(responseOptionDto.getQuestionId())
+            .orElseThrow(() -> new ResourceNotFoundException("Survey not found"));
+    
+        // Actualizar el capítulo
+        existingResponseOption.setOption_value(responseOptionDto.getOption_value());
+        existingResponseOption.setCommentResponse(responseOptionDto.getCommentResponse());
+        existingResponseOption.setOptionText(responseOptionDto.getOptionText());
+        existingResponseOption.setQuestions(question);
+       
+    
+        ResponseOption updateResponseOption = responseOptionService.save(existingResponseOption);
+    
+        return ResponseEntity.ok(updateResponseOption);
     }
 
 

@@ -10,10 +10,22 @@ function mostrarFormulario(tipo) {
                 <input type="text" id="optionText" placeholder="Texto de la opción de respuesta" required>
                 <input type="text" id="commentResponse" placeholder="Comentario de la respuesta" required>
                 
-                <button type="submit" id="questionId">GUARDAR CAMBIOS</button>
+                <button type="submit" id="guardarCambios">GUARDAR CAMBIOS</button>
             </form>
         `;
-    } 
+    } else if (tipo === 'actualizar') {
+        formulario = `
+            <form id="encuestaActualizarForm">
+                <input type="number" id="idResponseOptionActualizar" placeholder="Id de la respuesta" required>
+                <input type="text" id="questionIdActualizar" placeholder="Id de la pregunta" required>
+                <input type="text" id="optionValueActualizar" placeholder="Valor de la opción(1,2,3, o 4)" required>
+                <input type="text" id="optionTextActualizar" placeholder="Nuevo texto de la opción de respuesta" required>
+                <input type="text" id="commentResponseActualizar" placeholder="Nuevo comentario de la respuesta" required>
+
+                <button type="submit" id="guardarCambios">GUARDAR CAMBIOS</button>
+            </form>
+        `;
+    }
     
 
     rightPanel.innerHTML = formulario;
@@ -29,7 +41,9 @@ function mostrarFormulario(tipo) {
         e.preventDefault();
         if (tipo === 'crear') {
             guardarEncuestaCrear();
-        } 
+        } else if (tipo === 'actualizar') {
+            guardarEncuestaActualizar();
+        }
     }
 
     const form = document.getElementById(tipo === 'crear' ? 'encuestaRespuestaForm' :
