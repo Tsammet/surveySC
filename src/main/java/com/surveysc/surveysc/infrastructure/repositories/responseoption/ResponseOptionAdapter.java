@@ -1,13 +1,17 @@
 package com.surveysc.surveysc.infrastructure.repositories.responseoption;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.surveysc.surveysc.application.services.responseoption.ResponseOptionService;
+import com.surveysc.surveysc.domain.entities.Question;
 import com.surveysc.surveysc.domain.entities.ResponseOption;
-
+import com.surveysc.surveysc.infrastructure.repositories.chapter.exceptions.ResourceNotFoundException;
 import com.surveysc.surveysc.infrastructure.repositories.question.QuestionRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -23,9 +27,21 @@ public class ResponseOptionAdapter implements ResponseOptionService {
     private QuestionRepository questionRepository;
 
 
-   @Override
+    @Override
     public ResponseOption save(ResponseOption responseOption){
         return responseOptionRepository.save(responseOption);
+    }
+
+    @Override
+    public Page<ResponseOption> findAll(Pageable pageable) {
+        return responseOptionRepository.findAll(pageable);
+    }
+
+    @Override
+    @Transactional
+    public void remove(Long id) {
+        responseOptionRepository.removeById(id);
+
     }
 
     @Override
@@ -45,10 +61,19 @@ public class ResponseOptionAdapter implements ResponseOptionService {
 	}
 
     @Override
-    @Transactional
-    public void remove(Long id) {
-        responseOptionRepository.removeById(id);
+    public List<ResponseOption> findByQuestionId(Long questionId) {
+        // Encuentra la ` por ID
+        Question question = questionRepository.findById(questionId)
+            .orElseThrow(() -> new ResourceNotFoundException("Chapter not found"));
 
+        // Busca los capítulos asociados a esa encuesta
+        return responseOptionRepository.findByQuestions(question);
     }
+
+
+
+   
+
+
 
 }

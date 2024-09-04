@@ -1,6 +1,6 @@
 function guardarEncuestaEliminar() {
     const idRespuesta = document.getElementById('idResponseOptionEliminar').value;
-    const url = 'http://localhost:8080/responseoptionapi?responseoptionId=' + encodeURIComponent(idRespuesta);
+    const url = 'http://localhost:8080/responseoptionapi?responseOption=' + encodeURIComponent(idRespuesta);
 
     fetch(url, {
         method: 'DELETE',
@@ -22,6 +22,6 @@ function guardarEncuestaEliminar() {
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Error al eliminar el capitlo.');
+        alert('Error al eliminar la respuesta.');
     });
 }
