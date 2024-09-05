@@ -31,6 +31,8 @@
 //                         .requestMatchers("/auth/**").permitAll()
 //                         .requestMatchers("/surveyapi").hasRole("ADMIN")
 //                         .requestMatchers("/chapterapi").hasRole("ADMIN")
+//                         .requestMatchers("/questionapi").hasRole("ADMIN")
+//                         .requestMatchers("/responseoptionapi").hasRole("ADMIN")
 //                         .anyRequest().authenticated())
 //                 .sessionManagement(sessionManager -> sessionManager
 //                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
