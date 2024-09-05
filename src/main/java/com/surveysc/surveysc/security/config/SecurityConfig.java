@@ -23,22 +23,17 @@
 
 //     @Bean
 //     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
 //         return http
-//                 .csrf(csrf -> csrf
-//                         .disable())
-//                 .authorizeHttpRequests(authRequest -> authRequest
-//                         .requestMatchers("/auth/**").permitAll()
-//                         .requestMatchers("/surveyapi").hasRole("ADMIN")
-//                         .requestMatchers("/chapterapi").hasRole("ADMIN")
-//                         .requestMatchers("/questionapi").hasRole("ADMIN")
-//                         .requestMatchers("/responseoptionapi").hasRole("ADMIN")
-//                         .anyRequest().authenticated())
-//                 .sessionManagement(sessionManager -> sessionManager
-//                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                 .authenticationProvider(authProvider)
-//                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-//                 .build();
+//             .csrf(csrf -> csrf.disable())
+//             .authorizeHttpRequests(authRequest -> authRequest
+//                 .requestMatchers("/auth/**").permitAll()
+//                 .requestMatchers("/surveyapi").hasAuthority("ADMIN")
+//                 .anyRequest().authenticated()
+//             )
+//             .sessionManagement(sessionManager -> sessionManager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//             .authenticationProvider(authProvider)
+//             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+//             .build();
 //     }
 
 // }

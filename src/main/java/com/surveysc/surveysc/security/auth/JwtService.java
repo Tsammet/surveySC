@@ -1,11 +1,15 @@
 // package com.surveysc.surveysc.security.auth;
 
 // import java.security.Key;
+// import java.util.Arrays;
 // import java.util.Date;
 // import java.util.HashMap;
+// import java.util.List;
 // import java.util.Map;
 // import java.util.function.Function;
+// import java.util.stream.Collectors;
 
+// import org.springframework.security.core.GrantedAuthority;
 // import org.springframework.security.core.userdetails.UserDetails;
 // import org.springframework.stereotype.Service;
 
@@ -27,12 +31,17 @@
 //     }
 
 //     private String getToken(Map<String, Object> extraClaims, UserDetails user) {
+
+//     extraClaims.put("role", user.getAuthorities().stream()
+//             .map(GrantedAuthority::getAuthority)
+//             .collect(Collectors.joining(","))); 
+
 //         return Jwts
 //             .builder()
 //             .setClaims(extraClaims)
 //             .setSubject(user.getUsername())
 //             .setIssuedAt(new Date(System.currentTimeMillis()))
-//             .setExpiration(new Date(System.currentTimeMillis()+1000*60*24))
+//             .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24)) 
 //             .signWith(getKey(), SignatureAlgorithm.HS256)
 //             .compact();
 //     }
@@ -84,4 +93,8 @@
 //         return getExpiration(token).before(new Date()); 
 //     }
 
+//     public List<String> getRolesFromToken(String token) {
+//         String rolesString = getClaim(token, claims -> claims.get("role", String.class));
+//         return Arrays.asList(rolesString.split(","));
+//     }
 // }

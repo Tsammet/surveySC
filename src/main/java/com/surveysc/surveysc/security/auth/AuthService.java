@@ -28,21 +28,16 @@
 //     private final RolRepository rolRepository;
 
 //     public AuthResponse login(LoginRequest request) {
-
-//         String username = request.getUsername();
-//         String password = request.getPassword();       
-//         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-//         User user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("User not found"));
-
+//         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+//         User user = userRepository.findByUsername(request.getUsername()).orElseThrow(() -> new RuntimeException("User not found"));
+    
 //         String token = jwtService.getToken(user);
-
+    
 //         String role = user.getRoles().stream()
-//                           .findFirst()
-//                           .map(Rol::getName)
-//                           .orElse("UNKNOW_ROLE");
-
-//         System.out.println("Token generated for user " + username + " " + role);
-
+//                            .findFirst()
+//                            .map(Rol::getName)
+//                            .orElse("Unkown_role");
+    
 //         return AuthResponse.builder()
 //             .token(token)
 //             .role(role)
