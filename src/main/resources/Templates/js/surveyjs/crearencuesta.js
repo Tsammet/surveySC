@@ -6,6 +6,7 @@ function guardarEncuestaCrear() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            // 'Authorization': 'Bearer '
         },
         body: JSON.stringify({
             name: nombreEncuesta,

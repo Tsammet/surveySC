@@ -1,83 +1,85 @@
-package com.surveysc.surveysc.security.auth;
+// package com.surveysc.surveysc.security.auth;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+// import java.util.HashSet;
+// import java.util.List;
+// import java.util.Set;
 
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
+// import org.springframework.security.authentication.AuthenticationManager;
+// import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+// import org.springframework.security.core.userdetails.UserDetails;
+// import org.springframework.security.crypto.password.PasswordEncoder;
+// import org.springframework.stereotype.Service;
 
-import com.surveysc.surveysc.domain.entities.Rol;
-import com.surveysc.surveysc.domain.entities.User;
-import com.surveysc.surveysc.security.auth.user.RolRepository;
-import com.surveysc.surveysc.security.auth.user.UserRepository;
+// import com.surveysc.surveysc.domain.entities.Rol;
+// import com.surveysc.surveysc.domain.entities.User;
+// import com.surveysc.surveysc.security.auth.user.RolRepository;
+// import com.surveysc.surveysc.security.auth.user.UserRepository;
 
-import lombok.RequiredArgsConstructor;
+// import lombok.RequiredArgsConstructor;
 
-@Service
-@RequiredArgsConstructor
-public class AuthService {
+// @Service
+// @RequiredArgsConstructor
+// public class AuthService {
 
-    private final UserRepository userRepository; 
-    private final JwtService jwtService;
-    private final PasswordEncoder passwordEncoder;
-    private final AuthenticationManager authenticationManager;
-    private final RolRepository rolRepository;
+//     private final UserRepository userRepository; 
+//     private final JwtService jwtService;
+//     private final PasswordEncoder passwordEncoder;
+//     private final AuthenticationManager authenticationManager;
+//     private final RolRepository rolRepository;
 
-    public AuthResponse login(LoginRequest request) {
+//     public AuthResponse login(LoginRequest request) {
 
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
-        User user = userRepository.findByUsername(request.getUsername()).orElseThrow(() -> new RuntimeException("User not found"));
+//         String username = request.getUsername();
+//         String password = request.getPassword();       
+//         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+//         User user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("User not found"));
 
-        String token = jwtService.getToken(user);
+//         String token = jwtService.getToken(user);
 
-        String role = user.getRoles().stream()
-                          .findFirst()
-                          .map(Rol::getName)
-                          .orElse("UNKNOW_ROLE");
+//         String role = user.getRoles().stream()
+//                           .findFirst()
+//                           .map(Rol::getName)
+//                           .orElse("UNKNOW_ROLE");
 
-        return AuthResponse.builder()
-            .token(token)
-            .role(role)
-            .build();
-    }
+//         System.out.println("Token generated for user " + username + " " + role);
 
-    public AuthResponse register(LoginRequest request) {
+//         return AuthResponse.builder()
+//             .token(token)
+//             .role(role)
+//             .build();
+//     }
 
-        Rol userRole = rolRepository.findByName("USER")
-            .orElseThrow(() -> new RuntimeException("Rol USER no encontrado"));
-        System.out.println("Received registration request: " + request);
+//     public AuthResponse register(LoginRequest request) {
 
-        if (request.getPassword() == null || request.getPassword().isEmpty()){
-            throw new IllegalArgumentException("Password cannot be null or empty");
-        }
+//         System.out.println("Received registration request: " + request);
 
-        String encodePassword = passwordEncoder.encode(request.getPassword());
+//         if (request.getPassword() == null || request.getPassword().isEmpty()){
+//             throw new IllegalArgumentException("Password cannot be null or empty");
+//         }
 
-        Set<Rol> userRols = new HashSet<>();
-        for (String rolname : request.getRoles()){
-            Rol role = rolRepository.findByName(rolname)
-                .orElseThrow(() -> new RuntimeException("ROl Not Found: " + rolname));
-            userRols.add(role);
-        }
+//         String encodePassword = passwordEncoder.encode(request.getPassword());
 
-        List<Rol> rolesList = List.copyOf(userRols);
+//         Set<Rol> userRols = new HashSet<>();
+//         for (String rolname : request.getRoles()){
+//             Rol role = rolRepository.findByName(rolname)
+//                 .orElseThrow(() -> new RuntimeException("ROl Not Found: " + rolname));
+//             userRols.add(role);
+//         }
 
-        User user = User.builder()
-            .username(request.getUsername())
-            .password(encodePassword)
-            .roles(rolesList)
-            .enabled(true)
-            .build();
+//         List<Rol> rolesList = List.copyOf(userRols);
 
-            userRepository.save(user);
+//         User user = User.builder()
+//             .username(request.getUsername())
+//             .password(encodePassword)
+//             .roles(rolesList)
+//             .enabled(true)
+//             .build();
 
-            return AuthResponse.builder()
-                .token(jwtService.getToken(user))
-                .build();
-    }
+//             userRepository.save(user);
 
-}
+//             return AuthResponse.builder()
+//                 .token(jwtService.getToken(user))
+//                 .build();
+//     }
+
+// }

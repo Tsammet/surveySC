@@ -33,6 +33,7 @@ public class SurveyController {
     @PostMapping
     @CrossOrigin(origins = "*")
     public ResponseEntity<Survey> creaEntity(@Valid @RequestBody Survey survey){
+        System.out.println("Cratin survey " + survey.toString());
         Survey surveynew = surveyService.save(survey);
         return ResponseEntity.status(HttpStatus.CREATED).body(surveynew);
     }
