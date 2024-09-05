@@ -20,21 +20,7 @@
             background-color: #68168eaf; /* Color específico para el botón de volver */
             margin-left: 10vw;
         }
-        .continue-link {
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none; /* Hace que el enlace no tenga subrayado */
-            display: inline-block;
-            font-size: 20px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 5px;
-            background-color: #68168eaf; /* Color específico para el botón de volver */
-            margin-left: 75vw;
-            margin-top: 25px;
-        }
+    
     </style>
 </head>
 <body>
@@ -61,11 +47,10 @@
             <button onclick="mostrarFormulario('actualizar')">Actualizar Opción de Respuesta</button>
             <button onclick="mostrarFormulario('eliminar')">Eliminar Opción de Respuesta</button>
             <a href="listarRespuestas.html" class="left-button-link">Listar Opciones de Respuesta</a> 
-        <div class="right-panel" id="rightPanel"></div>
+        </div>
+        <div class="right-panel" id="rightPanel">
     </div>
-    <div id="back-button-container">
-        <a href="capitulo.html" class="continue-link">Continuar con otra opción de respuesta →</a>
-    </div>
+
 
     <script src="js/responseoption.js/crearResponseOption.js"></script>
     <script src="js/responseoption.js/actualizarResponseOption.js"></script>

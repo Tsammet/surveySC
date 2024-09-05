@@ -207,18 +207,20 @@ h1 {
 
 /* Estilos del panel izquierdo (botones) */
 .left-panel {
-    flex: 1; /* Ocupa el 30% del espacio disponible */
-    max-width: 30%;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Blanco translúcido */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 10px; /* Espacio entre los botones */
-}
+      /* flex: 1; */
+      max-width: 100%;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 10px;
+  }
 
 .left-panel button {
     padding: 15px;
+    width: 23%;
+    height: 7vh;
     background-color: #13376d;
     color: white;
     border: none;
@@ -231,6 +233,8 @@ h1 {
 
 .left-button-link{
     padding: 15px;
+    width: 23%;
+    height: 7vh;
     background-color: #13376d;
     color: white;
     border: none;
@@ -302,6 +306,20 @@ input {
     margin-top: 20px;
 }
 
+.back-link {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none; /* Hace que el enlace no tenga subrayado */
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #68168eaf; /* Color específico para el botón de volver */
+    margin-left: 10vw;
+}
 
 table {
     width: 100%;
