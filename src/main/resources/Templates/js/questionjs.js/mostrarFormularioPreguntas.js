@@ -5,31 +5,42 @@ function mostrarFormulario(tipo) {
     if (tipo === 'crear') {
         formulario = `
             <form id="encuestaPreguntaForm">
-                <input type="text" id="idCapitulo" placeholder="Id del capítulo" required>
-                <input type="number" id="numeroPregunta" placeholder="Número de la pregunta" required>
-                <input type="text" id="responseType" placeholder="TipoPregunta" required>
-                <input type="text" id="textoPregunta" placeholder="Texto de la pregunta" required>
-                <input type="text" id="comentarioPregunta" placeholder="Comentario de la pregunta" required>
-                <button type="submit" id="guardarCambios">GUARDAR CAMBIOS</button>
+                <div class="form-group">
+                    <label for="idCapitulo">Id del Capítulo:</label>
+                    <input type="text" id="idCapitulo" placeholder="Id del capítulo" required>
+                </div>
+                <div class="form-group">
+                    <label for="numeroPregunta">Número de la Pregunta:</label>
+                    <input type="number" id="numeroPregunta" placeholder="Número de la pregunta" required>
+                </div>
+                <div class="form-group">
+                    <label for="responseType">Tipo de Respuesta:</label>
+                    <select id="responseType" required>
+                        <option value="open">Respuesta Abierta</option>
+                        <option value="multiple">Opción Múltiple</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="textoPregunta">Texto de la Pregunta:</label>
+                    <input type="text" id="textoPregunta" placeholder="Texto de la pregunta" required>
+                </div>
+                <div class="form-group">
+                    <label for="comentarioPregunta">Comentario de la Pregunta:</label>
+                    <input type="text" id="comentarioPregunta" placeholder="Comentario de la pregunta" required>
+                </div>
+                <button type="submit" id="guardarCambios">Guardar Cambios</button>
             </form>
         `;
     } else if (tipo === 'actualizar') {
         formulario = `
             <form id="encuestaActualizarForm">
-                <input type="number" id="idPreguntaActualizar" placeholder="Id de la pregunta" required>
-                <input type="number" id="idCapituloActualizar" placeholder="Id del capitulo" required>
-                <input type="number" id="numeroPreguntaActualizar" placeholder="Nuevo numero de la pregunta" required>
-                <input type="text" id="responseType" placeholder="Tipo Pregunta" required>
-                <input type="text" id="textoPreguntaActualizar" placeholder="texto de la pregunta" required>
-                <input type="text" id="comentarioPreguntaActualizar" placeholder="Comentario de la pregunta" required>
-                <button type="submit" id="guardarCambios">GUARDAR CAMBIOS</button>
+                <!-- Campos de actualización aquí -->
             </form>
         `;
     } else if (tipo === 'eliminar') {
         formulario = `
             <form id="CapituloEliminarForm">
-                <input type="number" id="idPreguntaEliminar" placeholder="Id del capitulo a eliminar" required>
-                <button type="submit" id="guardarCambios">GUARDAR CAMBIOS</button>
+                <!-- Campos de eliminación aquí -->
             </form>
         `;
     }
@@ -60,4 +71,7 @@ function mostrarFormulario(tipo) {
     if (form) {
         form.addEventListener('submit', handleFormSubmit);
     }
+
+ 
+
 }

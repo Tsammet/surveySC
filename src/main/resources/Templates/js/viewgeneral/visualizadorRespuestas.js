@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function mostrarCapitulos(surveyId) {
     fetch(`http://localhost:8080/chapterapi?surveyId=${surveyId}`)
-    // fetch(`http://localhost:8080/chapterapi/allchapter`)
+    // fetch(`http://localhost:8080/chapterapi/allquestion`)
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -50,7 +50,7 @@ function mostrarCapitulos(surveyId) {
                 </tr>
             `;
         });
-
+// 
         tableHTML += '</table>';
         chapterList.innerHTML = tableHTML;
     })

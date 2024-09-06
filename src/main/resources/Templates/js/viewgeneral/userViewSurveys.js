@@ -37,7 +37,7 @@ function mostrarEncuestas() {
                     <td>${encuesta.id}</td>
                     <td>${encuesta.name}</td>
                     <td>${encuesta.description}</td>
-                    <td><button onclick="verCapitulos(${"#"})">Responder</button></td>
+                    <td><button onclick="verCapitulos('${encuesta.id}')">Responder</button></td>
                 </tr>
             `;
         });
@@ -51,3 +51,6 @@ function mostrarEncuestas() {
     });
 }
 
+function verCapitulos(surveyId) {
+    window.location.href = `MostrarEncuestaResponder.html?surveyId=${surveyId}`;
+}

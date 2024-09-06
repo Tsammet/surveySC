@@ -1,8 +1,13 @@
 function guardarEncuestaEliminar() {
+<<<<<<< HEAD
     const nombreEncuesta = document.getElementById('nombreEncuestaEliminar').value;
     const url = 'http://localhost:8080/surveyapi?surveyName=' + encodeURIComponent(nombreEncuesta);
     const jwtToken = localStorage.getItem("jwtToken")
     console.log("SURVER CREATION JWTOKEN "+jwtToken)    
+=======
+    const idEncuesta = document.getElementById('idEncuestaEliminar').value;
+    const url = 'http://localhost:8080/surveyapi?surveyId=' + encodeURIComponent(idEncuesta);
+>>>>>>> 3077f926251bf602786ad222e2a5f951c728423a
 
     fetch(url, {
         method: 'DELETE',
