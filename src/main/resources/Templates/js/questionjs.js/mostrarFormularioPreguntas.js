@@ -28,7 +28,7 @@ function mostrarFormulario(tipo) {
     } else if (tipo === 'eliminar') {
         formulario = `
             <form id="CapituloEliminarForm">
-                <input type="number" id="idPreguntaEliminar" placeholder="Id del capitulo a eliminar" required>
+                <input type="number" id="idPreguntaEliminar" placeholder="Id de la pregunta a eliminar" required>
                 <button type="submit" id="guardarCambios">GUARDAR CAMBIOS</button>
             </form>
         `;

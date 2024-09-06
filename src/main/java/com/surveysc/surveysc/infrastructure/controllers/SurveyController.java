@@ -50,8 +50,8 @@ public class SurveyController {
 
     @CrossOrigin(origins = "*")
     @DeleteMapping
-    public ResponseEntity<String> deleteSurvey(@RequestParam String surveyName) {
-        surveyService.remove(surveyName);
+    public ResponseEntity<String> deleteSurvey(@RequestParam Long surveyId) {
+        surveyService.remove(surveyId);
         return new ResponseEntity<>("Eliminado", HttpStatus.OK);
     }
 
