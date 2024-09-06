@@ -34,44 +34,13 @@ function mostrarFormulario(tipo) {
     } else if (tipo === 'actualizar') {
         formulario = `
             <form id="encuestaActualizarForm">
-                <div class="form-group">
-                    <label for="idPreguntaActualizar">Id de la Pregunta:</label>
-                    <input type="number" id="idPreguntaActualizar" placeholder="Id de la pregunta" required>
-                </div>
-                <div class="form-group">
-                    <label for="idCapituloActualizar">Id del Capítulo:</label>
-                    <input type="number" id="idCapituloActualizar" placeholder="Id del capítulo" required>
-                </div>
-                <div class="form-group">
-                    <label for="numeroPreguntaActualizar">Nuevo Número de la Pregunta:</label>
-                    <input type="number" id="numeroPreguntaActualizar" placeholder="Nuevo número de la pregunta" required>
-                </div>
-                <div class="form-group">
-                    <label for="responseType">Tipo de Respuesta:</label>
-                    <select id="responseType" required>
-                        <option value="open">Respuesta Abierta</option>
-                        <option value="multiple">Opción Múltiple</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="textoPreguntaActualizar">Texto de la Pregunta:</label>
-                    <input type="text" id="textoPreguntaActualizar" placeholder="Texto de la pregunta" required>
-                </div>
-                <div class="form-group">
-                    <label for="comentarioPreguntaActualizar">Comentario de la Pregunta:</label>
-                    <input type="text" id="comentarioPreguntaActualizar" placeholder="Comentario de la pregunta" required>
-                </div>
-                <button type="submit" id="guardarCambios">Guardar Cambios</button>
+                <!-- Campos de actualización aquí -->
             </form>
         `;
     } else if (tipo === 'eliminar') {
         formulario = `
             <form id="CapituloEliminarForm">
-                <div class="form-group">
-                    <label for="idPreguntaEliminar">Id de la Pregunta a Eliminar:</label>
-                    <input type="number" id="idPreguntaEliminar" placeholder="Id de la pregunta a eliminar" required>
-                </div>
-                <button type="submit" id="guardarCambios">Eliminar Pregunta</button>
+                <!-- Campos de eliminación aquí -->
             </form>
         `;
     }
@@ -102,4 +71,7 @@ function mostrarFormulario(tipo) {
     if (form) {
         form.addEventListener('submit', handleFormSubmit);
     }
+
+ 
+
 }
