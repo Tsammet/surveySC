@@ -13,6 +13,7 @@
             width: 80%;
             max-width: 800px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto; /* Centra el contenedor en la página */
         }
         .header {
             display: flex;
@@ -39,7 +40,6 @@
             padding: 15px;
             margin-bottom: 20px;
             border: 1px solid #1f181853;
-
         }
         .info-item, .question-item {
             display: flex;
@@ -78,6 +78,34 @@
             background-color: #322f2f77;
             border-radius: 3px;
             text-align: center;
+            color: white; /* Mejor visibilidad del texto en el fondo oscuro */
+        }
+        .chapter-container {
+            margin-top: 20px;
+        }
+        .chapter-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .chapter-label {
+            font-weight: bold;
+        }
+        .view-questions {
+            background-color: #2196F3;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -111,13 +139,16 @@
                 <span class="info-value" id="survey-description"></span>
             </div>
         </div>
+        <div class="chapter-container" id="chapter-container">
+            <!-- Aquí se agregarán los capítulos dinámicamente -->
+        </div>
         <div class="question-container">
             <div class="question-item">
                 <span class="question-label">Capítulo No.:</span>
                 <span class="question-value" id="chapter-number"></span>
             </div>
             <div class="question-item">
-                <span class="question-label">Titulo Capítulo:</span>
+                <span class="question-label">Título Capítulo:</span>
                 <span class="question-value" id="chapter-title"></span>
             </div>
             <div class="question-item">
@@ -129,54 +160,6 @@
             <div class="options-container" id="options-container"></div>
         </div>
     </div>
-    <script>
-        // Aquí es donde normalmente harías una llamada a tu base de datos
-        // Para este ejemplo, usaremos datos de muestra
-        const surveyData = {
-            id: "ENC001",
-            name: "Encuesta de Satisfacción",
-            description: "Esta encuesta tiene como objetivo medir la satisfacción de nuestros clientes.",
-            chapter: 1,
-            chaptertitle: "Titulo capitulo 1",
-            questionNumber: 3,
-            questionText: "¿Qué tan satisfecho está con nuestro servicio al cliente?",
-            questionComment: "Por favor, considere sus interacciones recientes con nuestro equipo de soporte.",
-            options: [
-                "Muy satisfecho",
-                "Satisfecho",
-                "Neutral",
-                "Insatisfecho"
-            ]
-        };
-
-        // Función para cargar los datos en la página
-        function loadSurveyData() {
-            document.getElementById('survey-id').textContent = surveyData.id;
-            document.getElementById('survey-name').textContent = surveyData.name;
-            document.getElementById('survey-description').textContent = surveyData.description;
-            document.getElementById('chapter-number').textContent = surveyData.chapter;
-            document.getElementById('chapter-title').textContent = surveyData.chaptertitle;
-            document.getElementById('question-number').textContent = surveyData.questionNumber;
-            document.getElementById('question-text').textContent = surveyData.questionText;
-            document.getElementById('question-comment').textContent = surveyData.questionComment;
-
-            const optionsContainer = document.getElementById('options-container');
-            surveyData.options.forEach(option => {
-                const optionElement = document.createElement('div');
-                optionElement.className = 'option';
-                optionElement.textContent = option;
-                optionsContainer.appendChild(optionElement);
-            });
-        }
-
-        // Cargar los datos cuando la página esté lista
-        document.addEventListener('DOMContentLoaded', loadSurveyData);
-
-        // Funcionalidad del botón "Volver"
-        document.querySelector('.back-button').addEventListener('click', () => {
-            alert('Volviendo a la página anterior...');
-            // Aquí puedes agregar la lógica para volver a la página anterior
-        });
-    </script>
+    <script src="MostrarEncuestaResponder.js"></script>
 </body>
 </html>

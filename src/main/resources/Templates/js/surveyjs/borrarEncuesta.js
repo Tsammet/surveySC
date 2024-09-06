@@ -1,6 +1,6 @@
 function guardarEncuestaEliminar() {
-    const nombreEncuesta = document.getElementById('nombreEncuestaEliminar').value;
-    const url = 'http://localhost:8080/surveyapi?surveyName=' + encodeURIComponent(nombreEncuesta);
+    const idEncuesta = document.getElementById('idEncuestaEliminar').value;
+    const url = 'http://localhost:8080/surveyapi?surveyId=' + encodeURIComponent(idEncuesta);
 
     fetch(url, {
         method: 'DELETE',

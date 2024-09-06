@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${encuesta.id}</td>
-                <td>${encuesta.questions.questionId}</td>
+                <td>${encuesta.questions.id}</td>
                 <td>${encuesta.option_value}</td>
                 <td>${encuesta.commentResponse}</td>
                 <td>${encuesta.optionText}</td>

@@ -15,7 +15,7 @@ public interface SurveyService {
 
     Page<Survey> findAll(Pageable pageable);
 
-    void remove(String name);
+    void remove(Long id);
 
     Survey update(Survey survey);
 

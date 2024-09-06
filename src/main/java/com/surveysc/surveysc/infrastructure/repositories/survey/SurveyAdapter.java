@@ -32,9 +32,9 @@ public class SurveyAdapter implements SurveyService {
 
     @Override
     @Transactional
-    public void remove(String name) {
+    public void remove(Long id) {
         
-        surveyRepository.removeByName(name);
+        surveyRepository.removeById(id);
 
     }
 

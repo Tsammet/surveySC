@@ -6,6 +6,6 @@ import com.surveysc.surveysc.domain.entities.Survey;
 
 public interface SurveyRepository extends JpaRepository<Survey, Long>{
 
-    void removeByName(String name);
+    void removeById(Long id);
 
 }

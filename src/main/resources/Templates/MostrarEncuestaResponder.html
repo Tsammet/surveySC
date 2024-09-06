@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Encuesta y Capítulos</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        .container {
+            background-color: rgba(255, 255, 255, 0.766);
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .back-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .info-container, .chapter-container {
+            background-color: #f9f9f9a7;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #1f181853;
+        }
+        .info-item, .chapter-item {
+            margin-bottom: 10px;
+        }
+        .info-label, .chapter-label {
+            font-weight: bold;
+        }
+        .info-value {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .options-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .option {
+            padding: 10px;
+            background-color: #322f2f77;
+            border-radius: 3px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SC Surveys</div>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="login.html">Acceder</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="header">
+            <button class="back-button">← Volver</button>
+        </div>
+        <div id="encuesta-container" class="info-container">
+            <!-- Los datos de la encuesta se insertarán aquí -->
+        </div>
+        <div id="chapter-container" class="chapter-container">
+            <!-- Los capítulos se insertarán aquí -->
+        </div>
+    </div>
+    <script src="js/viewgeneral/MostrarEncuestaResponder.js"></script>
+</body>
+</html>
