@@ -11,7 +11,7 @@ function guardarEncuestaCrear() {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            chapterId : idCapitulo,
+            chapterId: idCapitulo,
             questionNumber: numeroPregunta,
             responseType: responseType,
             questionText: textoPregunta,
@@ -27,9 +27,10 @@ function guardarEncuestaCrear() {
     .then(data => {
         console.log('Success:', data);
         alert('Pregunta creada con éxito!');
+        // Limpiar el formulario o redirigir al usuario si es necesario
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Error al crear el capitulo.');
+        alert('Error al crear la pregunta.');
     });
 }
