@@ -4,12 +4,15 @@ function guardarEncuestaActualizar() {
     const commentResponse = document.getElementById('commentResponseActualizar').value;
     const optionText = document.getElementById('optionTextActualizar').value;
     const questionId = document.getElementById('questionIdActualizar').value;
-
+    const jwtToken = localStorage.getItem("jwtToken")
+    console.log("SURVER CREATION JWTOKEN "+jwtToken)    
 
     fetch('http://localhost:8080/responseoptionapi', { // Usando PUT para actualización
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + jwtToken  
+
         },
         body: JSON.stringify({
             id : id,

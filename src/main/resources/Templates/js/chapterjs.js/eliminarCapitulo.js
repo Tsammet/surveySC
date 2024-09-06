@@ -1,11 +1,15 @@
 function guardarEncuestaEliminar() {
     const idCapitulo = document.getElementById('idCapituloEliminar').value;
     const url = 'http://localhost:8080/chapterapi?chapterId=' + encodeURIComponent(idCapitulo);
+    const jwtToken = localStorage.getItem("jwtToken")
+    console.log("SURVER CREATION JWTOKEN "+jwtToken)    
 
     fetch(url, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + jwtToken  
+
         },
     })
     .then(response => {

@@ -1,11 +1,14 @@
 function guardarEncuestaCrear() {
     const nombreEncuesta = document.getElementById('nombreEncuesta').value;
     const descripcionEncuesta = document.getElementById('descripcionEncuesta').value;
+    const jwtToken = localStorage.getItem("jwtToken")
+    console.log("SURVER CREATION JWTOKEN "+jwtToken)      
 
     fetch('http://localhost:8080/surveyapi', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + jwtToken  
         },
         body: JSON.stringify({
             name: nombreEncuesta,

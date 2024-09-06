@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('http://localhost:8080/chapterapi/allchapter')
+    const jwtToken = localStorage.getItem("jwtToken")
+    console.log("SURVER CREATION JWTOKEN "+jwtToken)    
+
+    fetch('http://localhost:8080/chapterapi/allchapter',
+    {
+        
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + jwtToken  
+        }
+
+    })
+    
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');

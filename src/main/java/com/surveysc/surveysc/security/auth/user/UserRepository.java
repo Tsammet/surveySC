@@ -1,13 +1,13 @@
-// package com.surveysc.surveysc.security.auth.user;
+package com.surveysc.surveysc.security.auth.user;
 
-// import com.surveysc.surveysc.domain.entities.User;
+import com.surveysc.surveysc.domain.entities.User;
 
-// import java.util.Optional;
+import java.util.Optional;
 
-// import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-// public interface UserRepository  extends JpaRepository<User, Long>{
+public interface UserRepository  extends JpaRepository<User, Long>{
 
-//     Optional<User> findByUsername(String username);
+    Optional<User> findByUsername(String username);
 
-// }
+}

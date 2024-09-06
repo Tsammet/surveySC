@@ -2,12 +2,15 @@ function guardarEncuestaActualizar() {
     const id = document.getElementById('idEncuestaActualizar').value;
     const nombre = document.getElementById('nombreEncuestaActualizar').value;
     const descripcion = document.getElementById('descripcionEncuestaActualizar').value;
-
+    const jwtToken = localStorage.getItem("jwtToken")
+    console.log("SURVER CREATION JWTOKEN "+jwtToken)    
 
     fetch('http://localhost:8080/surveyapi', { // Usando PUT para actualización
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + jwtToken  
+
         },
         body: JSON.stringify({
             id: id,

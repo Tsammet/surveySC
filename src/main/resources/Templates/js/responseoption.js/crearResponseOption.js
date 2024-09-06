@@ -3,11 +3,15 @@ function guardarEncuestaCrear() {
     const commentResponse = document.getElementById('commentResponse').value;
     const optionText = document.getElementById('optionText').value;
     const questionId = document.getElementById('questionId').value;
+    const jwtToken = localStorage.getItem("jwtToken")
+    console.log("SURVER CREATION JWTOKEN "+ jwtToken)    
 
     fetch('http://localhost:8080/responseoptionapi', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + jwtToken  
+
         },
         body: JSON.stringify({
 

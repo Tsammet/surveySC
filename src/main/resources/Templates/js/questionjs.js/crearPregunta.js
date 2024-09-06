@@ -4,11 +4,15 @@ function guardarEncuestaCrear() {
     const responseType = document.getElementById('responseType').value;
     const textoPregunta = document.getElementById('textoPregunta').value;
     const comentarioPregunta = document.getElementById('comentarioPregunta').value;
+    const jwtToken = localStorage.getItem("jwtToken")
+    console.log("SURVER CREATION JWTOKEN "+jwtToken)    
 
     fetch('http://localhost:8080/questionapi', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + jwtToken  
+
         },
         body: JSON.stringify({
             chapterId : idCapitulo,

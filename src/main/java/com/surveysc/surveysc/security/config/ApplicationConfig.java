@@ -1,57 +1,57 @@
-// package com.surveysc.surveysc.security.config;
+package com.surveysc.surveysc.security.config;
 
-// import org.springframework.context.annotation.Bean;
-// import org.springframework.context.annotation.Configuration;
-// import org.springframework.security.authentication.AuthenticationManager;
-// import org.springframework.security.authentication.AuthenticationProvider;
-// import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-// import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-// import org.springframework.security.core.userdetails.UserDetailsService;
-// import org.springframework.security.core.userdetails.UsernameNotFoundException;
-// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-// import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-// import com.surveysc.surveysc.security.auth.user.UserRepository;
+import com.surveysc.surveysc.security.auth.user.UserRepository;
 
-// import lombok.RequiredArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-// @Configuration
-// @RequiredArgsConstructor
-// public class ApplicationConfig {
+@Configuration
+@RequiredArgsConstructor
+public class ApplicationConfig {
 
-//     private final UserRepository userRepository; 
+    private final UserRepository userRepository; 
 
-//     @Bean
-//     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception{
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception{
         
-//         return config.getAuthenticationManager();
+        return config.getAuthenticationManager();
 
-//     }
+    }
 
-//     @Bean
-//     public AuthenticationProvider authenticationProvider(){
+    @Bean
+    public AuthenticationProvider authenticationProvider(){
 
-//         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-//         authenticationProvider.setUserDetailsService(userDetailService());
-//         authenticationProvider.setPasswordEncoder(passwordEncoder());
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+        authenticationProvider.setUserDetailsService(userDetailService());
+        authenticationProvider.setPasswordEncoder(passwordEncoder());
 
-//         return authenticationProvider;
+        return authenticationProvider;
 
-//     }
+    }
 
-//     @Bean
-//     public PasswordEncoder passwordEncoder() {
+    @Bean
+    public PasswordEncoder passwordEncoder() {
         
-//         return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();
 
-//     }
+    }
 
-//     @Bean
-//     public UserDetailsService userDetailService() {
+    @Bean
+    public UserDetailsService userDetailService() {
        
-//         return username -> userRepository.findByUsername(username)
-//         .orElseThrow(()-> new UsernameNotFoundException("User not found"));
+        return username -> userRepository.findByUsername(username)
+        .orElseThrow(()-> new UsernameNotFoundException("User not found"));
 
-//     }
+    }
 
-// }
+}

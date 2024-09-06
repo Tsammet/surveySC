@@ -3,12 +3,15 @@ function guardarEncuestaActualizar() {
     const idEncuesta = document.getElementById('idEncuestaActualizar').value;
     const numeroCapitulo = document.getElementById('numeroCapituloActualizar').value;
     const tituloCapitulo = document.getElementById('tituloCapituloActualizar').value;
-
+    const jwtToken = localStorage.getItem("jwtToken")
+    console.log("SURVER CREATION JWTOKEN "+jwtToken)    
 
     fetch('http://localhost:8080/chapterapi', { // Usando PUT para actualización
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + jwtToken  
+
         },
         body: JSON.stringify({
             id: id,
